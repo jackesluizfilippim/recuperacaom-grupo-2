@@ -1,0 +1,65 @@
+create database grupo2;
+
+use grupo2;
+
+
+create table prato (
+ id int primary key not null auto_increment,
+ nome varchar (255) not null,
+ descricao varchar(255) not null,
+ preco varchar(255) not null
+);
+
+
+create table cliente (
+ id int primary key not null auto_increment,
+ nome varchar (255) not null,
+ telefone varchar(255) not null,
+email varchar (255) not null
+);
+
+create table pedido (
+ id int primary key not null auto_increment,
+ cliente_id varchar (255) not null,
+ data_pedido varchar(255) not null,
+ disponivel varchar(255) not null
+);
+
+create table item_pedido(
+ id int primary key not null auto_increment,
+ pedido_id varchar (255) not null,
+ prato_id varchar(255) not null,
+ quantidade varchar (244) not null
+);
+
+create table mesa (
+ id int primary key not null auto_increment,
+ numero varchar (255) not null,
+capacidade varchar(255) not null 
+);
+
+
+
+insert into  prato (nome, descricao, preco ) values ( "Pizza Margherita", "Pizza com tomate, manjericão e mussarela", " 40.00.");
+
+insert into  cliente (nome, telefone, email) values ("joão", "123456789", "joao@example.com" );
+
+insert into  pedido (cliente_id, data_pedido, disponivel) values ("cliente 1", "22/11/2024", "aberto");
+
+insert into  item_pedido (pedido_id, prato_id, quantidade) values ("pedido 1", "prato 1", "quantidade 2" );
+
+insert into  mesa (numero, capacidade) values (" 5", "4" );
+
+update prato set preco = "45.00" where "Pizza Margherita";
+
+update item_pedido set pedido_id = "concluido" where "pedido 1";
+
+
+select nome from prato ;
+
+select nome from cliente ;
+ 
+
+select cliente_id from pedido;
+
+select preco from prato;
